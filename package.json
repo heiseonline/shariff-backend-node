@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^7.0.0"
+    "hapi": "^7.0.0",
+    "good": "^3.0.1",
+    "request": "^2.45.0",
+    "promise": "^6.0.1"
   }
 }
