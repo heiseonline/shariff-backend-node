@@ -151,7 +151,7 @@ server.pack.register(Good, function(err) {
     }
 
     server.start(function() {
-        server.log('info', 'Server ist running at: ', server.info.uri);
+        server.log('info', 'Server ist running at: ' + server.info.uri);
     });
 });
 
