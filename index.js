@@ -2,8 +2,9 @@ var Hapi    = require('hapi');
 var Good    = require('good');
 var Promise = require('promise');
 var request = require('request');
+var config  = require('./shariff.json');
 
-var server = new Hapi.Server(3001);
+var server = new Hapi.Server(config.port);
 
 function getTwitter(resourceURL) {
     return new Promise(function(resolve, reject) {
