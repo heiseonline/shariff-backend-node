@@ -71,9 +71,9 @@ function getCountOnly(res) {
         }
 
         resolve({
-            twitter:  res[0].count,
-            facebook: res[1][0].like_count,
-            gplus:    res[2].result.metadata.globalCounts.count
+            twitter:    res[0].count,
+            facebook:   res[1][0].like_count,
+            googleplus: res[2].result.metadata.globalCounts.count
         });
     });
 }
