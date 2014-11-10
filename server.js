@@ -64,21 +64,6 @@ function getGplus(resourceURL) {
     });
 }
 
-function getRawData(res) {
-    return new Promise(function(resolve, reject) {
-        if (res.length !== 3) {
-            reject();
-        }
-
-        resolve({
-            twitter:  res[0],
-            facebook: res[1],
-            gplus:    res[2]
-        });
-
-    });
-}
-
 function getCountOnly(res) {
     return new Promise(function(resolve, reject) {
         if (res.length !== 3) {
@@ -111,27 +96,13 @@ function toJSON(data) {
 
 server.route({
     method: 'GET',
-    path: '/services/',
+    path: '/',
     handler: function(req, reply) {
         var resourceURL = req.query.url;
 
-        Promise.all(
-            [
-                getTwitter(resourceURL),
-                getFacebook(resourceURL),
-                getGplus(resourceURL)
-            ]
-        ).then(getRawData).then(toJSON).then(function(jsonOutput) {
-            reply(jsonOutput).type('application/json');
-        });
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/sharecount/',
-    handler: function(req, reply) {
-        var resourceURL = req.query.url;
+        if ( ! resourceURL ) {
+            reply('{}').type('application/json');
+        }
 
         Promise.all(
             [
