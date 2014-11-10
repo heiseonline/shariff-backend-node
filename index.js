@@ -146,13 +146,6 @@ server.route({
     }
 });
 
-server.pack.register(Good, function(err) {
-    if (err) {
-        throw err; // something bad happened loading the plugin
-    }
+module.exports = server;
 
-    server.start(function() {
-        server.log('info', 'Server ist running at: ' + server.info.uri);
-    });
-});
 

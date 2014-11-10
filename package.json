@@ -1,5 +1,5 @@
 {
-  "name": "social-media-backend-node-hapi",
+  "name": "shariff",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -8,10 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@trac02.heise.de:apl/social-media-backend-node-hapi.git"
+    "url": "git@trac02.heise.de:github/shariff-backend-node"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Alexander Pluhar",
+    "email": "apl@heise.de"
+  },
+  "contributors": [
+    {
+      "name": "Philipp Busse",
+      "email": "pmb@heise.de"
+    }
+  ],
   "dependencies": {
     "hapi": "^7.0.0",
     "good": "^3.0.1",
