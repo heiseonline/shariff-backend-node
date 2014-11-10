@@ -38,7 +38,7 @@ function getFacebook(resourceURL) {
     });
 }
 
-function getGplus(resourceURL) {
+function getGooglePlus(resourceURL) {
     return new Promise(function(resolve, reject) {
         var gplusURL = 'https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ';
         var gplusBody = {
@@ -108,7 +108,7 @@ server.route({
             [
                 getTwitter(resourceURL),
                 getFacebook(resourceURL),
-                getGplus(resourceURL)
+                getGooglePlus(resourceURL)
             ]
         ).then(getCountOnly).then(toJSON).then(function(jsonOutput) {
             reply(jsonOutput).type('application/json');
