@@ -44,8 +44,8 @@ function getFacebook(resourceURL) {
 
 function getGooglePlus(resourceURL) {
     return new Promise(function(resolve, reject) {
-        var gplusURL = 'https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ';
-        var gplusBody = {
+        var googlePlusURL = 'https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ';
+        var googlePlusBody = {
             method: 'pos.plusones.get',
             id: 'p',
             params: {
@@ -60,7 +60,7 @@ function getGooglePlus(resourceURL) {
             apiVersion: 'v1',
         };
 
-        request({uri: gplusURL, method: 'POST', json: gplusBody}, function(error, response, body) {
+        request({uri: googlePlusURL, method: 'POST', json: googlePlusBody}, function(error, response, body) {
             if ( !error && response.statusCode == 200 ) {
                 resolve(body);
             }
