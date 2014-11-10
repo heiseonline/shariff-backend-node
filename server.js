@@ -1,5 +1,4 @@
 var Hapi    = require('hapi');
-var Good    = require('good');
 var Promise = require('promise');
 var request = require('request');
 var config  = require('./shariff.json');

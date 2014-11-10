@@ -2,8 +2,9 @@
   "name": "shariff-backend-node",
   "version": "0.1.1",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+  	"start": "node run.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
