@@ -107,7 +107,6 @@ server.method('getJSONOutput', function(resourceURL, next) {
             getGooglePlus(resourceURL)
         ]
     ).then(getCountOnly).then(toJSON).then(function(jsonOutput) {
-        server.log('info', 'before next');
         next(null, jsonOutput);
     });
 }, {
