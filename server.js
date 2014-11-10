@@ -3,7 +3,11 @@ var Promise = require('promise');
 var request = require('request');
 var config  = require('./shariff.json');
 
-var server = new Hapi.Server(config.port);
+var server = new Hapi.Server(config.port, {
+    cache: {
+        engine: require('catbox-memory'),
+    }
+});
 
 function getTwitter(resourceURL) {
     return new Promise(function(resolve, reject) {
@@ -80,6 +84,7 @@ function getCountOnly(res) {
 
 function toJSON(data) {
     return new Promise(function(resolve, reject) {
+
         try {
             var jsonString = JSON.stringify(data);
             if (jsonString && typeof jsonString === "string") {
@@ -94,6 +99,23 @@ function toJSON(data) {
     });
 }
 
+server.method('getJSONOutput', function(resourceURL, next) {
+    Promise.all(
+        [
+            getTwitter(resourceURL),
+            getFacebook(resourceURL),
+            getGooglePlus(resourceURL)
+        ]
+    ).then(getCountOnly).then(toJSON).then(function(jsonOutput) {
+        server.log('info', 'before next');
+        next(null, jsonOutput);
+    });
+}, {
+    cache: {
+        expiresIn: 3600 * 1000
+    }
+});
+
 server.route({
     method: 'GET',
     path: '/',
@@ -104,13 +126,7 @@ server.route({
             reply('{}').type('application/json');
         }
 
-        Promise.all(
-            [
-                getTwitter(resourceURL),
-                getFacebook(resourceURL),
-                getGooglePlus(resourceURL)
-            ]
-        ).then(getCountOnly).then(toJSON).then(function(jsonOutput) {
+        server.methods.getJSONOutput(resourceURL, function(err, jsonOutput) {
             reply(jsonOutput).type('application/json');
         });
     }
