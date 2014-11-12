@@ -27,5 +27,11 @@
     "request": "^2.45.0",
     "promise": "^6.0.1",
     "catbox-memory": "^1.1.1"
-  }
+  },
+  "keywords": [
+    "heise",
+    "social buttons",
+    "shariff"
+  ],
+  "license": "MIT <http://www.opensource.org/licenses/mit-license.php>"
 }
