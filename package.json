@@ -1,0 +1,31 @@
+{
+  "name": "shariff-backend-node",
+  "version": "0.2.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node run.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heiseonline/shariff-backend-node"
+  },
+  "author": {
+    "name": "Alexander Pluhar",
+    "email": "apl@heise.de"
+  },
+  "contributors": [
+    {
+      "name": "Philipp Busse",
+      "email": "pmb@heise.de"
+    }
+  ],
+  "dependencies": {
+    "hapi": "^7.0.0",
+    "good": "^3.0.1",
+    "request": "^2.45.0",
+    "promise": "^6.0.1",
+    "catbox-memory": "^1.1.1"
+  }
+}
