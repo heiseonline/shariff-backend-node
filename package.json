@@ -1,6 +1,6 @@
 {
   "name": "shariff-backend-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -39,7 +39,10 @@
   },
   "engine-strict": true,
   "engineStrict": true,
-  "engines" : { "node" : "<0.9", "npm" : "~1.0.20" },
+  "engines": {
+    "node": "<0.9",
+    "npm": "~1.0.20"
+  },
   "license": "MIT <http://www.opensource.org/licenses/mit-license.php>",
   "devDependencies": {
     "grunt": "^0.4.5",
