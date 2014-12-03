@@ -4,7 +4,7 @@ var config  = require('./shariff.json');
 
 var server = new Hapi.Server(config.port, config.host, {
     cache: {
-        engine: require(config.cache.engine),
+        engine: require(config.cache.engine)
     }
 });
 
@@ -16,7 +16,7 @@ function toJSON(data) {
             if (jsonString && typeof jsonString === "string") {
                 resolve(jsonString);
             } else {
-                throw "Failed generating JSON string."
+                throw "Failed generating JSON string.";
             }
         }
         catch(e) {
@@ -37,7 +37,7 @@ server.method('getJSONOutput', function(resourceURL, next) {
         return new Promise(function(resolve, reject) {
 
             service.request(resourceURL, function(error, response, body) {
-                if ( !error && response.statusCode == 200 ) {
+                if ( !error && response.statusCode === 200 ) {
 
                     if ( typeof body === "object" ) {
                         resolve(body);
@@ -95,5 +95,4 @@ server.route({
 });
 
 module.exports = server;
-
 
