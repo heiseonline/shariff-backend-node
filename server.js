@@ -46,7 +46,7 @@ server.method('getJSONOutput', function(resourceURL, next) {
                     }
 
                 } else {
-                    reject(Error(error));
+                    reject(error);
                 }
             });
         });
@@ -68,9 +68,17 @@ server.method('getJSONOutput', function(resourceURL, next) {
         });
     }
 
-    Promise.all(requests).then(extractCounts).then(toJSON).then(function(jsonOutput) {
-        next(null, jsonOutput);
-    });
+    Promise
+        .all(requests)
+        .catch(function(error) {
+            console.log(require('util').inspect(error));
+            next(error);
+        })
+        .then(extractCounts)
+        .then(toJSON)
+        .then(function(jsonOutput) {
+            next(null, jsonOutput);
+        });
 
 }, {
     cache: {
@@ -89,7 +97,10 @@ server.route({
         }
 
         server.methods.getJSONOutput(resourceURL, function(err, jsonOutput) {
-            reply(jsonOutput).type('application/json');
+            if (err)
+                reply(!(err instanceof Error) ? new Error(err) : err, null);
+            else
+                reply(jsonOutput).type('application/json');
         });
     }
 });
