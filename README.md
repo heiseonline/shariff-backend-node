@@ -15,6 +15,8 @@ The frontend is available here:
 
 ## Installing the Shariff backend on you own server
 
+### Option 1: Run the standalone server
+
 Create a project folder and install the Shariff server using `npm`:
 
 ```sh
@@ -45,6 +47,22 @@ Start Shariff with:
 $ node node_modules/shariff-backend-node/run.js
 141104/143603.929, info, Server ist running at: http://localhost:3001
 ```
+### Option 2:
+
+Alternatively, you may call the Shariff backend from your own code. If called directly, the code will still use a cache and honor the expiresIn setting, the engine will however not be used in this case, just a simple object store.
+
+Sample:
+
+```node
+var Shariff = require('shariff-backend-node');
+
+Shariff.getCounts('google.com').then(function(counts) {
+    console.log('Success, counts:', counts);
+}, function(err) {
+    console.log('Failed to grab counts!', err);
+});
+```
+If passed `true` as second parameter, the `getCounts()` method will not use its cache and instead re-query the services.
 
 ## Testing your installation
 
