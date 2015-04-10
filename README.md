@@ -53,7 +53,7 @@ Alternatively, you may call the Shariff backend from your own code. If called di
 
 Sample:
 
-```javascript```
+```node
 var Shariff = require('shariff-backend-node');
 
 Shariff.getCounts('google.com').then(function(counts) {
