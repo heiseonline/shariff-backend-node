@@ -18,7 +18,8 @@ function getCounts(url, noCache) {
         require('./lib/twitter'),
         require('./lib/facebook'),
         require('./lib/googleplus'),
-        require('./lib/flattr')
+        require('./lib/flattr'),
+        require('./lib/linkedin')
     ];
 
     var cached = cache[url];
