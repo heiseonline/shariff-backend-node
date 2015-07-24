@@ -17,7 +17,8 @@ function getCounts(url, noCache) {
     var services = [
         require('./lib/twitter'),
         require('./lib/facebook'),
-        require('./lib/googleplus')
+        require('./lib/googleplus'),
+        require('./lib/flattr')
     ];
 
     var cached = cache[url];
@@ -95,4 +96,3 @@ function toJSON(data) {
 module.exports = {
     getCounts: getCounts
 };
-
