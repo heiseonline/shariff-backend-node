@@ -21,7 +21,8 @@ function getCounts(url, noCache) {
         require('./lib/flattr'),
         require('./lib/linkedin'),
         require('./lib/reddit'),
-        require('./lib/stumbleupon')
+        require('./lib/stumbleupon'),
+        require('./lib/xing')
     ];
 
     var cached = cache[url];
