@@ -20,7 +20,8 @@ function getCounts(url, noCache) {
         require('./lib/googleplus'),
         require('./lib/flattr'),
         require('./lib/linkedin'),
-        require('./lib/reddit')
+        require('./lib/reddit'),
+        require('./lib/stumbleupon')
     ];
 
     var cached = cache[url];
