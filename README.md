@@ -33,7 +33,8 @@ The node package contains a configuration file `shariff.json`. The following con
 | `port`    | `integer`  | Port Shariff runs on |
 | `host`    | `string`  | Host/IP address Shariff runs on |
 | `cache`    | `object`  | Cache settings described below |
-| `services` | `array`   | Array of services to be used   |
+| `services` | `array`   | Array of services to be used (optional) |
+| `facebook` | `object`  | Facebook access settings (optional) |
 
 Cache settings:
 
@@ -41,6 +42,13 @@ Cache settings:
 |-------------|------|-------------|
 | `engine` | `string` | [catbox](https://github.com/hapijs/catbox) backend |
 | `expiresIn` | `integer` | Cache duration in milliseconds |
+
+[Facebook access settings](https://developers.facebook.com/docs/apps/register):
+
+| Key         | Type | Description |
+|-------------|------|-------------|
+| `client_id` | `string` | Application id |
+| `client_secret` | `string` | Application secret key |
 
 Start Shariff with:
 

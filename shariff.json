@@ -5,6 +5,10 @@
         "engine": "catbox-memory",
         "expiresIn": 3600000
     },
+    "facebook": {
+        "client_id": "",
+        "client_secret": ""
+    },
     "services": [
         "./lib/twitter",
         "./lib/facebook",
