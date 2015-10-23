@@ -33,6 +33,7 @@ The node package contains a configuration file `shariff.json`. The following con
 | `port`    | `integer`  | Port Shariff runs on |
 | `host`    | `string`  | Host/IP address Shariff runs on |
 | `cache`    | `object`  | Cache settings described below |
+| `services` | `array`   | Array of services to be used   |
 
 Cache settings:
 

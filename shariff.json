@@ -4,5 +4,15 @@
     "cache": {
         "engine": "catbox-memory",
         "expiresIn": 3600000
-    }
+    },
+    "services": [
+        "./lib/twitter",
+        "./lib/facebook",
+        "./lib/googleplus",
+        "./lib/flattr",
+        "./lib/linkedin",
+        "./lib/reddit",
+        "./lib/stumbleupon",
+        "./lib/xing"
+    ]
 }

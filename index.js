@@ -14,16 +14,21 @@ var cache = {};
  *                         or an error on reject
  */
 function getCounts(url, noCache) {
-    var services = [
-        require('./lib/twitter'),
-        require('./lib/facebook'),
-        require('./lib/googleplus'),
-        require('./lib/flattr'),
-        require('./lib/linkedin'),
-        require('./lib/reddit'),
-        require('./lib/stumbleupon'),
-        require('./lib/xing')
-    ];
+    var services = [];
+    if (config && config.services) {
+        config.services.forEach(function(item){
+            services.push(require(item));
+        });
+    } else {
+        services.push(require('./lib/twitter'),
+            require('./lib/facebook'),
+            require('./lib/googleplus'),
+            require('./lib/flattr'),
+            require('./lib/linkedin'),
+            require('./lib/reddit'),
+            require('./lib/stumbleupon'),
+            require('./lib/xing'));
+    }
 
     var cached = cache[url];
     if (!noCache && cached && cached.expire > new Date())
