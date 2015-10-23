@@ -4,5 +4,24 @@
     "cache": {
         "engine": "catbox-memory",
         "expiresIn": 3600000
-    }
+    },
+    "facebook": {
+        "client_id": "",
+        "client_secret": ""
+    },
+    "cors": false,
+    "tls": {
+        "key": "",
+        "cert": ""
+    },
+    "services": [
+        "./lib/twitter",
+        "./lib/facebook",
+        "./lib/googleplus",
+        "./lib/flattr",
+        "./lib/linkedin",
+        "./lib/reddit",
+        "./lib/stumbleupon",
+        "./lib/xing"
+    ]
 }

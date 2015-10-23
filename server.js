@@ -3,11 +3,22 @@ var Promise = require('promise');
 var config  = require('./shariff.json');
 var Shariff = require('./index.js');
 
-var server = new Hapi.Server(config.port, config.host, {
+var options = {
     cache: {
         engine: require(config.cache.engine)
+    },
+    cors: config.cors
+}
+
+if ( config.tls && config.tls.key && config.tls.cert ) {
+    var fs = require('fs');
+    options.tls = {
+        key: fs.readFileSync(config.tls.key),
+        cert: fs.readFileSync(config.tls.cert)
     }
-});
+}
+
+var server = new Hapi.Server(config.port, config.host, options);
 
 server.method('getJSONOutput', function(resourceURL, next) {
     Shariff.getCounts(resourceURL).then(function(counts) {
