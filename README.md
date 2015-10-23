@@ -35,6 +35,8 @@ The node package contains a configuration file `shariff.json`. The following con
 | `cache`    | `object`  | Cache settings described below |
 | `services` | `array`   | Array of services to be used (optional) |
 | `facebook` | `object`  | Facebook access settings (optional) |
+| `cors`     | `boolean` | Allow/disallow cross-domain requests |
+| `tls`      | `object`  | Settings to run server over HTTPS |
 
 Cache settings:
 
@@ -49,6 +51,13 @@ Cache settings:
 |-------------|------|-------------|
 | `client_id` | `string` | Application id |
 | `client_secret` | `string` | Application secret key |
+
+TLS settings:
+
+| Key         | Type     | Description         |
+|-------------|----------|---------------------|
+| `key`       | `string` | Path to `key` file  |
+| `cert`      | `string` | Path to `cert` file |
 
 Start Shariff with:
 

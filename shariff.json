@@ -9,6 +9,11 @@
         "client_id": "",
         "client_secret": ""
     },
+    "cors": false,
+    "tls": {
+        "key": "",
+        "cert": ""
+    },
     "services": [
         "./lib/twitter",
         "./lib/facebook",
