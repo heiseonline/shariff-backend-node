@@ -15,7 +15,6 @@ var cache = {};
  */
 function getCounts(url, noCache) {
     var services = [
-        require('./lib/twitter'),
         require('./lib/facebook'),
         require('./lib/googleplus'),
         require('./lib/flattr'),

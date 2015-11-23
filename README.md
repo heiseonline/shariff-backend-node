@@ -69,5 +69,5 @@ If passed `true` as second parameter, the `getCounts()` method will not use its 
 Visit `http://localhost:3001/?url=www.example.com` to get a JSON structure containing the share counts:
 
 ```json
-{"facebook":1452,"twitter":404,"googleplus":23}
+{"facebook":1452,"googleplus":23}
 ```
