@@ -16,8 +16,8 @@ var cache = {};
 function getCounts(url, noCache) {
     
     var baseurls = [
-	'www.example.com',
-	'blog.extrapages.de'
+	'http://www.6502.org/users/andre/',
+	'http://blog.extrapages.de'
     ];
 
     var services = [
