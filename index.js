@@ -14,6 +14,12 @@ var cache = {};
  *                         or an error on reject
  */
 function getCounts(url, noCache) {
+    
+    var baseurls = [
+	'www.example.com',
+	'blog.extrapages.de'
+    ];
+
     var services = [
         require('./lib/facebook'),
         require('./lib/googleplus'),
@@ -23,6 +29,18 @@ function getCounts(url, noCache) {
         require('./lib/stumbleupon'),
         require('./lib/xing')
     ];
+
+    // only allow URLs that start with a given base URL
+    var match = false;
+    baseurls.forEach(function(elem) {
+	if (url.startsWith(elem)) {
+		match = true;
+	}
+    });
+
+    if (!match) {
+	return Promise.resolve({});
+    }
 
     var cached = cache[url];
     if (!noCache && cached && cached.expire > new Date())
