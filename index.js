@@ -18,7 +18,7 @@ function getCounts(url, noCache) {
         require('./lib/facebook'),
         require('./lib/googleplus'),
         require('./lib/flattr'),
-        require('./lib/linkedin'),
+        //require('./lib/linkedin'),
         require('./lib/reddit'),
         require('./lib/stumbleupon'),
         require('./lib/xing')
