@@ -18,7 +18,7 @@ function getCounts(url, noCache) {
         require('./lib/facebook'),
         require('./lib/googleplus'),
         require('./lib/flattr'),
-        //require('./lib/linkedin'),
+        require('./lib/linkedin'),
         require('./lib/reddit'),
         require('./lib/stumbleupon'),
         require('./lib/xing')
@@ -41,7 +41,8 @@ function getCounts(url, noCache) {
                     }
 
                 } else {
-                    reject(error);
+		    console.log("Error on " + url + " for " + service.name + " -> " + error);
+                    resolve(null);
                 }
             });
         });
@@ -54,8 +55,10 @@ function getCounts(url, noCache) {
 
             var i = 0;
             res.forEach(function() {
-                var count = services[i].extractCount(res[i]);
-                result[ services[i].name ] = count;
+		if (res[i]) {
+                	var count = services[i].extractCount(res[i]);
+                	result[ services[i].name ] = count;
+		}
                 i++;
             });
 
