@@ -1,4 +1,4 @@
-# Shariff Node Backend
+# [DEPRECATED] Shariff Node Backend
 
 Shariff is used to determine how often a page is shared in social media, but without generating requests from the displaying page to the social sites.
 
