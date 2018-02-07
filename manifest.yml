@@ -1,0 +1,5 @@
+applications:
+- name: fachat-shariff-backend
+  host: fachat-shariff-backend
+  memory: 128M
+

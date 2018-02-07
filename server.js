@@ -4,6 +4,7 @@ var config  = require('./shariff.json');
 var Shariff = require('./index.js');
 
 var server = new Hapi.Server(config.port, config.host, {
+    cors: true,
     cache: {
         engine: require(config.cache.engine)
     }
